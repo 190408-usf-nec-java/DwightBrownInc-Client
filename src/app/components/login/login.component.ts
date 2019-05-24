@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     this.loginResponse = this.loginService.$loginStatus.subscribe(status => {
       // do something with status here
       if (status === 201) {
-        this.router.navigateByUrl('aportal');
+        this.router.navigateByUrl('eportal');
       } else {
         // set status to lastStatus to display appripraite error mesage
         this.lastStatus = status;
