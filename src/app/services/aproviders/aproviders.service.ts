@@ -8,29 +8,17 @@ import { Subject } from 'rxjs';
 export class AprovidersService {
   private resolveStatusSubject = new Subject<number>();
   public $resolveStatus = this.resolveStatusSubject.asObservable();
-  public peteDental = '../../../assets/PetesTotalCare/dental1.pdf';
-  public peteVision = '../../../assets/PetesTotalCare/vision1.pdf';
-  public peteMedical = '../../../assets/PetesTotalCare/medical1.pdf';
-  public armandMedical = '../../../assets/ArmandGroup/medical2.pdf';
-  public armandVision = '../../../assets/ArmandGroup/vision2.pdf';
-  public armandDental = '../../../assets/ArmandGroup/dental2.pdf';
-  public willDental = '../../../assets/WillCross/dental3.pdf';
-  public willMedical = '../../../assets/WillCross/medical3.pdf';
-  public willVision = '../../../assets/WillCross/vision3.pdf';
-  public retirement = '../../../assets/PetesTotalCare/retirement1.pdf';
   private selection = new Array<any>();
   constructor(private httpClient: HttpClient) { }
-  aProviderSelection(companyID: number, providerId: number, description: string, typeId: number) {
+  aProviderSelection(companyID: number, providerId: number) {
     const payload = {
-      companyID: companyID,
-      providerId: providerId,
-      typeId: typeId,
-      description: description
+      companies: companyID,
+      provider: providerId,
     };
-    return this.selection.push(payload);
+    this.selection.push(payload);
   }
   Submit() {
-    this.httpClient.post('http://localhost:8080/ProjectTwoa_V1/alogin', this.selection,{
+    this.httpClient.post('http://localhost:8081/BenefitPlan', this.selection, {
       observe: 'response'
     }).subscribe(response => {
       this.resolveStatusSubject.next(200);
@@ -41,34 +29,34 @@ export class AprovidersService {
 
 
   getPeteDental() {
-    return this.peteDental;
+    return localStorage.getItem('8');
   }
   getPeteVision() {
-    return this.peteVision;
+    return  localStorage.getItem('9');
   }
   getPeteHealth() {
-    return this.peteMedical;
+    return  localStorage.getItem('10');
   }
   getArmandMedical() {
-    return this.armandMedical;
+    return  localStorage.getItem('13');
   }
   getArmandVision() {
-    return this.armandVision;
+    return  localStorage.getItem('12');
   }
   getArmandDental() {
-    return this.armandDental;
+    return  localStorage.getItem('11');
   }
   getWillDental() {
-    return this.willDental;
+    return  localStorage.getItem('5');
   }
   getWillMedical() {
-    return this.willMedical;
+    return  localStorage.getItem('7');
   }
   getWillVision() {
-    return this.willVision;
+    return  localStorage.getItem('6');
   }
   getRetirement() {
-    return this.retirement;
+    return  localStorage.getItem('retirement');
   }
 
 
