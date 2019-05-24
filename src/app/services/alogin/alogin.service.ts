@@ -11,15 +11,15 @@ export class AloginService {
 
   constructor(private httpClient: HttpClient) { }
   storeLocation() {
-    localStorage.setItem('8', '../../../assets/PetesTotalCare/dental1.pdf');
-    localStorage.setItem('9', '../../../assets/PetesTotalCare/vision1.pdf');
-    localStorage.setItem('10', '../../../assets/PetesTotalCare/medical1.pdf');
-    localStorage.setItem('13', '../../../assets/ArmandGroup/medical2.pdf');
-    localStorage.setItem('12', '../../../assets/ArmandGroup/vision2.pdf');
-    localStorage.setItem('11', '../../../assets/ArmandGroup/dental2.pdf');
-    localStorage.setItem('5', '../../../assets/WillCross/dental3.pdf');
+    localStorage.setItem('6', '../../../assets/PetesTotalCare/dental1.pdf');
+    localStorage.setItem('5', '../../../assets/PetesTotalCare/vision1.pdf');
+    localStorage.setItem('4', '../../../assets/PetesTotalCare/medical1.pdf');
+    localStorage.setItem('1', '../../../assets/ArmandGroup/medical2.pdf');
+    localStorage.setItem('2', '../../../assets/ArmandGroup/vision2.pdf');
+    localStorage.setItem('3', '../../../assets/ArmandGroup/dental2.pdf');
+    localStorage.setItem('9', '../../../assets/WillCross/dental3.pdf');
     localStorage.setItem('7', '../../../assets/WillCross/medical3.pdf');
-    localStorage.setItem('6', '../../../assets/WillCross/vision3.pdf');
+    localStorage.setItem('8', '../../../assets/WillCross/vision3.pdf');
     localStorage.setItem('retirement', '../../../assets/PetesTotalCare/retirement1.pdf');
   }
 

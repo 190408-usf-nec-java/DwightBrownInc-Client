@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
 import { AprovidersService } from 'src/app/services/aproviders/aproviders.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-aproviders',
@@ -34,13 +35,14 @@ export class AprovidersComponent implements OnInit {
   //companyName = this.splitCache[1];
 
 
-  constructor(private aproviderService: AprovidersService, private sanitizer: DomSanitizer) { }
+  constructor(private aproviderService: AprovidersService, private sanitizer: DomSanitizer, private router: Router) { }
 
   ngOnInit() {
 
     this.response = this.$viewStatus.subscribe(status => {
       if (status === 201) {
         alert('Insurance Chosen');
+        this.router.navigateByUrl('aportal');
       } else {
         this.lastStatus = status;
       }
@@ -51,8 +53,8 @@ export class AprovidersComponent implements OnInit {
       this.response.unsubscribe();
     }
   }
-  aProviderSelection(providerId, description, typeId, ) {
-    this.aproviderService.aProviderSelection(this.companyID, providerId, description, typeId);
+  aProviderSelection(providerId ) {
+    this.aproviderService.aProviderSelection(this.companyID, providerId);
   }
   Submit() {
     this.aproviderService.Submit();
