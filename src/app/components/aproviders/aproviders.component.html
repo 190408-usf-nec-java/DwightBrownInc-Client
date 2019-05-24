@@ -32,7 +32,7 @@
                 <h5>Dental</h5>
                 <button type="button" (click)="[aProviderSelection(3,PeteDental()), hidePete3()]"
                     class="btn btn-success">Accept</button>
-                <button type="button" (click)="hidePete3" class="btn btn-danger">Deny</button>
+                <button type="button" (click)="hidePete3()" class="btn btn-danger">Deny</button>
                 <object [attr.data]="PeteDental()" type="application/pdf" width="100%" height="800">
                     <p>Your browser does not support PDFs.</p>
                 </object>
