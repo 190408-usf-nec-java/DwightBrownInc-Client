@@ -17,6 +17,7 @@ export class AloginComponent implements OnInit, OnDestroy {
   constructor(private aloginService: AloginService, private router: Router ) { }
 
   ngOnInit() {
+    this.aloginService.storeLocation();
     this.loginResponse = this.aloginService.$loginStatus.subscribe(status => {
       // do something with status here
       if (status === 201) {
@@ -26,6 +27,7 @@ export class AloginComponent implements OnInit, OnDestroy {
         this.lastStatus = status;
       }
     });
+
   }
 
 
@@ -34,6 +36,8 @@ ngOnDestroy(): void {
     this.loginResponse.unsubscribe();
   }
 }
+
+//THIS IS A TEST
 
 submit() {
   this.aloginService.alogin(this.companyEmail, this.Password);

@@ -21,7 +21,7 @@ export class AregisterComponent implements OnInit, OnDestroy {
       if (status === 201) {
         alert('Employee Registered');
       } else {
-        alert('Employee not created'); 
+        alert('Employee not created');
         this.lastStatus = status;
       }
     });
