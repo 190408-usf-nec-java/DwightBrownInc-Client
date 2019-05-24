@@ -10,6 +10,15 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class AprovidersComponent implements OnInit {
   public show = false;
+  public pete1 = true;
+  public pete2 = true;
+  public pete3 = true;
+  public armand3 = true;
+  public armand2 = true;
+  public armand1 = true;
+  public will1 = true;
+  public will2 = true;
+  public will3 = true;
   public buttonName: any = 'Expand';
   public show1 = false;
   public buttonName1: any = 'Expand';
@@ -18,19 +27,19 @@ export class AprovidersComponent implements OnInit {
   private viewStatusSubject = new Subject<number>();
   response: Subscription;
   public $viewStatus = this.viewStatusSubject.asObservable();
-  lastStatus = 200;
+  lastStatus = 201;
   //splitCache = sessionStorage.getItem('cache').split(' ');
   companyID = 0;
   Url: any;
   //companyName = this.splitCache[1];
-  
-  
-  constructor(private aproviderService: AprovidersService, private sanitizer:DomSanitizer) { }
+
+
+  constructor(private aproviderService: AprovidersService, private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
 
     this.response = this.$viewStatus.subscribe(status => {
-      if (status === 200) {
+      if (status === 201) {
         alert('Insurance Chosen');
       } else {
         this.lastStatus = status;
@@ -42,70 +51,96 @@ export class AprovidersComponent implements OnInit {
       this.response.unsubscribe();
     }
   }
-  aProviderSelection(providerId,description,typeId, ) {
+  aProviderSelection(providerId, description, typeId, ) {
     this.aproviderService.aProviderSelection(this.companyID, providerId, description, typeId);
   }
-  Submit(){
+  Submit() {
     this.aproviderService.Submit();
   }
+  hidePete1() {
+    this.pete1 = !this.pete1;
+  }
+  hidePete2() {
+    this.pete2 = !this.pete2;
+  }
+  hidePete3() {
+    this.pete3 = !this.pete3;
+  }
+  hideArmand1() {
+    this.armand1 = !this.armand1;
+  }
+  hideArmand2() {
+    this.armand2 = !this.armand2;
+  }
+  hideArmand3() {
+    this.armand3 = !this.armand3;
+  }
+  hideWill1() {
+    this.will1 = !this.will1;
+  }
+  hideWill2() {
+    this.will2 = !this.will2;
+  }
+  hideWill3() {
+    this.will3 = !this.will3;
+  }
+
+
   toggle() {
     this.show = !this.show;
-
     // CHANGE THE TEXT OF THE BUTTON.
     if (this.show) {
       this.buttonName = 'Collapse';
     } else {
       this.buttonName = 'Expand';
-  }
+    }
   }
   toggle1() {
     this.show1 = !this.show1;
-
     // CHANGE THE TEXT OF THE BUTTON.
     if (this.show1) {
       this.buttonName1 = 'Collapse';
     } else {
       this.buttonName1 = 'Expand';
-  }
+    }
   }
   toggle2() {
     this.show2 = !this.show2;
-
     // CHANGE THE TEXT OF THE BUTTON.
     if (this.show2) {
       this.buttonName2 = 'Collapse';
     } else {
       this.buttonName2 = 'Expand';
-  }
+    }
   }
   PeteDental() {
     return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.aproviderService.getPeteDental());
   }
-  PeteVision(){
+  PeteVision() {
     return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.aproviderService.getPeteVision());
   }
-  PeteMedical(){
+  PeteMedical() {
     return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.aproviderService.getPeteHealth());
   }
-  ArmandDental(){
+  ArmandDental() {
     return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.aproviderService.getArmandDental());
   }
-  ArmandVision(){
+  ArmandVision() {
     return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.aproviderService.getArmandVision());
   }
-  ArmandMedical(){
+  ArmandMedical() {
     return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.aproviderService.getArmandMedical());
   }
-  WillDental(){
+  WillDental() {
     return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.aproviderService.getWillDental());
   }
-  WillMedical(){
+  WillMedical() {
     return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.aproviderService.getWillMedical());
   }
-  WillVision(){
+  WillVision() {
     return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.aproviderService.getWillVision());
   }
-  Retirement(){
+  Retirement() {
     return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.aproviderService.getRetirement());
   }
 }
