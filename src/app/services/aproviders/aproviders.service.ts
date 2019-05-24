@@ -8,16 +8,14 @@ import { Subject } from 'rxjs';
 export class AprovidersService {
   private resolveStatusSubject = new Subject<number>();
   public $resolveStatus = this.resolveStatusSubject.asObservable();
-  private selection = new Array<any>();
+  private selection;
   constructor(private httpClient: HttpClient) { }
+
   aProviderSelection(companyID: number, providerID: number) {
     const payload = {
       companyId: companyID,
       providerId: providerID,
     };
-    this.selection.push(payload);
-  }
-  Submit() {
     this.httpClient.post('http://localhost:8081/BenefitPlan', this.selection, {
       observe: 'response'
     }).subscribe(response => {

@@ -44,6 +44,7 @@ export class AprovidersComponent implements OnInit {
         alert('Insurance Chosen');
         this.router.navigateByUrl('aportal');
       } else {
+        alert('Something went wrong');
         this.lastStatus = status;
       }
     });
@@ -53,11 +54,11 @@ export class AprovidersComponent implements OnInit {
       this.response.unsubscribe();
     }
   }
+  Submit(){
+    this.router.navigateByUrl('aportal');
+  }
   aProviderSelection(providerId ) {
     this.aproviderService.aProviderSelection(this.companyID, providerId);
-  }
-  Submit() {
-    this.aproviderService.Submit();
   }
   hidePete1() {
     this.pete1 = !this.pete1;
