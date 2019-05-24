@@ -41,11 +41,20 @@ margin: 0 auto;
 font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
+/* Pete, Armand, Will */
 h4 {
+text-align: center;
+color: #018dc4;
+margin: 0 auto;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Medical, Dental, Vision */
+h5 {
 text-align: center;
 color: white;
 margin: 0 auto;
-font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 label {
