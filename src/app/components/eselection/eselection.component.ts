@@ -150,33 +150,33 @@ export class EselectionComponent implements OnInit {
     }
   }
   PeteDental() {
-    return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.aproviderService.getPeteDental());
+    return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.eselectionService.getPeteDental());
   }
   PeteVision() {
-    return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.aproviderService.getPeteVision());
+    return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.eselectionService.getPeteVision());
   }
   PeteMedical() {
-    return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.aproviderService.getPeteHealth());
+    return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.eselectionService.getPeteHealth());
   }
   ArmandDental() {
-    return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.aproviderService.getArmandDental());
+    return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.eselectionService.getArmandDental());
   }
   ArmandVision() {
-    return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.aproviderService.getArmandVision());
+    return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.eselectionService.getArmandVision());
   }
   ArmandMedical() {
-    return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.aproviderService.getArmandMedical());
+    return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.eselectionService.getArmandMedical());
   }
   WillDental() {
-    return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.aproviderService.getWillDental());
+    return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.eselectionService.getWillDental());
   }
   WillMedical() {
-    return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.aproviderService.getWillMedical());
+    return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.eselectionService.getWillMedical());
   }
   WillVision() {
-    return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.aproviderService.getWillVision());
+    return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.eselectionService.getWillVision());
   }
   Retirement() {
-    return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.aproviderService.getRetirement());
+    return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.eselectionService.getRetirement());
   }
 }
