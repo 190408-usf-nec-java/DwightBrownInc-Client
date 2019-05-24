@@ -51,8 +51,8 @@ export class AprovidersComponent implements OnInit {
       this.response.unsubscribe();
     }
   }
-  aProviderSelection(providerId, description, typeId, ) {
-    this.aproviderService.aProviderSelection(this.companyID, providerId, description, typeId);
+  aProviderSelection(providerId) {
+    this.aproviderService.aProviderSelection(this.companyID, providerId);
   }
   Submit() {
     this.aproviderService.Submit();

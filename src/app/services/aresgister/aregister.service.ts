@@ -19,7 +19,6 @@ export class AregisterService {
     };
     this.httpClient.post('http://localhost:8080/Employee', payload, {
     }).subscribe(response => {
-      sessionStorage.setItem('cache', response.body.toString());
       this.aregisterStatusSubject.next(201);
     }, err => {
       this.aregisterStatusSubject.next(err.status);
