@@ -35,6 +35,8 @@ ngOnDestroy(): void {
   }
 }
 
+//THIS IS A TEST
+
 submit() {
   this.aloginService.alogin(this.companyEmail, this.Password);
 }
