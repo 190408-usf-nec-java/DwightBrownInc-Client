@@ -23,7 +23,7 @@ getProviderList(companyID){
   };
   this.httpClient.post('http://localhost:8081/Providers/getall', {
       observe: 'response'
-    }).pipe(map(response => response.body as Array<Provider>)
+    }).pipe(map(response => response.body as any as Array<Provider>)
     ).subscribe(response => {
       this.eselectStatusSubject.next(201);
       response.forEach(element => {
