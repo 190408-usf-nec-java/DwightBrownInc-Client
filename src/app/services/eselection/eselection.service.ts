@@ -23,7 +23,7 @@ export class EselectionService {
       observe: 'response'
     }).pipe(map(response => response.body as Array<BenefitPlan>)
     ).subscribe(response => {
-      this.eselectStatusSubject.next(200);
+      this.eselectStatusSubject.next(201);
       response.forEach(element => {
         this.benefit.push(element);
       });
@@ -37,7 +37,7 @@ export class EselectionService {
       benefitPlanId: benefitPlanID,
       employeeId: employeeID
     };
-    this.httpClient.post('http://localhost:8081/BenefitPlan', payload, {
+    this.httpClient.post('http://localhost:8081/EmployeeSelection', payload, {
       observe: 'response'
     }).subscribe(response => {
       this.eselectStatusSubject.next(201);

@@ -4,6 +4,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { Subject, Subscription } from 'rxjs';
 import { BenefitPlan } from 'src/app/models/benefitplan';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-eselection',
@@ -33,13 +34,14 @@ export class EselectionComponent implements OnInit {
   //splitCache = sessionStorage.getItem('cache').split(' ');
   companyID = 0;
   Url: any;
-  companyId;
+  companyId = JSON.parse(localStorage.getItem('token')).company.companyId;
   employeeBenefit = new Array<BenefitPlan>();
 
   constructor(private eselectionService: EselectionService, private sanitizer: DomSanitizer, private router: Router) { }
 
   ngOnInit() {
     this.eselectionService.getBenefitPlan(this.companyId);
+    this.filter();
     this.response = this.$viewStatus.subscribe(status => {
       if (status === 201) {
         alert('Insurance Chosen');
@@ -59,6 +61,7 @@ export class EselectionComponent implements OnInit {
 
   filter() {
     for (let i = 0; i < 10; i++) {
+      console.log(localStorage.key(1));
 
       if (Number(localStorage.key(1)) === this.employeeBenefit[i].providerId) {
         this.armand1 = true;

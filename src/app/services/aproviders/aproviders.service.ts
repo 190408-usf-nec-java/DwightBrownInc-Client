@@ -12,8 +12,11 @@ export class AprovidersService {
   constructor(private httpClient: HttpClient) { }
 
   aProviderSelection(companyID: number, providerID: number) {
+    console.log(companyID);
+    console.log(providerID);
     const payload = {
       companyId: companyID,
+
       providerId: providerID,
     };
     this.httpClient.post('http://localhost:8081/BenefitPlan', payload, {
