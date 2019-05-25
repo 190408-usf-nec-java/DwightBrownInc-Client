@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Company } from 'src/app/models/company';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +33,10 @@ export class AloginService {
 
     this.httpClient.post('http://localhost:8081/Company/login', payload, {
       observe: 'response'
-    }).subscribe(response => {
+    }).pipe(map(response => response.body as Company))
+      .subscribe(response => {
+        console.log(response);
+        localStorage.setItem('token', JSON.stringify(response));
       this.loginStatusSubject.next(201);
     }, err => {
       this.loginStatusSubject.next(err.status);
