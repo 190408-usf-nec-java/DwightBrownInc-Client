@@ -93,9 +93,10 @@ letter-spacing: .7px;
 }
 
 p {
-    color: white;
+    color: black;
     font-size: 13px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: left;
 }
 
 #container {
