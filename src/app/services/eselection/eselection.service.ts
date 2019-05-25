@@ -16,7 +16,7 @@ export class EselectionService {
   public providerlist = new Array<Provider>();
   constructor(private httpClient: HttpClient) { }
 
-
+// Fixed error
 getProviderList(companyID){
   const payload = {
     companyId: companyID
