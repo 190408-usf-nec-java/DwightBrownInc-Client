@@ -1,8 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Injectable} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Subject, Observable } from 'rxjs';
 import { BenefitPlan } from '../../models/benefitplan';
+import {Provider} from '../../models/provider';
+
 
 @Injectable({
   providedIn: 'root'
@@ -11,15 +13,34 @@ export class EselectionService {
   private eselectStatusSubject = new Subject<number>();
   public $eselectStatus = this.eselectStatusSubject.asObservable();
   public benefit = new Array<BenefitPlan>();
-
+  public providerlist = new Array<Provider>();
   constructor(private httpClient: HttpClient) { }
+
+
+getProviderList(companyID){
+  const payload = {
+    companyId: companyID
+  };
+  this.httpClient.post('http://localhost:8081/Providers/getall', {
+      observe: 'response'
+    }).pipe(map(response => response.body as Array<Provider>)
+    ).subscribe(response => {
+      this.eselectStatusSubject.next(201);
+      response.forEach(element => {
+        this.providerlist.push(element);
+      });
+    }, err => {
+      this.eselectStatusSubject.next(err.status);
+    });
+  }
+
 
 
   getBenefitPlan(companyID: number) {
     const payload = {
       companyId: companyID
     };
-    this.httpClient.post('http://localhost:8081/BenefitPlan', payload, {
+    this.httpClient.post('http://localhost:8081/BenefitPlan/getall', payload, {
       observe: 'response'
     }).pipe(map(response => response.body as Array<BenefitPlan>)
     ).subscribe(response => {

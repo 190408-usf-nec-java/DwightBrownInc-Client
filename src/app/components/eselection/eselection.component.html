@@ -1,122 +1,106 @@
 <div id="container">
 
-<h1>Select your benefits</h1>
-<h2>Choose the benefits that work for you.</h2>
-<br><br>
+    <h1>Select your benefits</h1>
+    <h2>Choose the benefits that work for you.</h2>
+    <br><br>
 
-<div class="row justify-content-center">
+    <div class="row justify-content-center">
 
         <div class="col-9">
-            <button (click)="toggle()" id="btToggle" class="btn btn-info btn-lg">{{buttonName}}</button>
-            <br>
-    
-            <div *ngIf="show">
-                <div *ngIf="pete1">
-                    <h5>- Medical -</h5>
-                    <button type="button" (click)="[aProviderSelection(1, PeteMedical()), hidePete1()]"
-                        class="btn btn-success">ACCEPT</button>
-                    <button type="button" (click)="hidePete1()" class="btn btn-danger">DENY</button>
-                    <object [attr.data]="PeteMedical()" type="application/pdf" width="100%" height="800">
-                        <p>Your browser does not support PDFs.</p>
-                    </object>
-                </div>
-    
-                <br>
-                <div *ngIf="pete2">
-                    <h5>- Vision -</h5>
-                    <button type="button" (click)="[aProviderSelection(2,PeteVision()), hidePete2()]"
-                        class="btn btn-success">ACCEPT</button>
-                    <button type="button" (click)="hidePete2()" class="btn btn-danger">DENY</button>
-                    <object [attr.data]="PeteVision()" type="application/pdf" width="100%" height="800">
-                        <p>Your browser does not support PDFs.</p>
-                    </object>
-                </div>
-                <br>
-                <div *ngIf="pete3">
-                    <h5>- Dental -</h5>
-                    <button type="button" (click)="[aProviderSelection(3,PeteDental()), hidePete3()]"
-                        class="btn btn-success">ACCEPT</button>
-                    <button type="button" (click)="hidePete3()" class="btn btn-danger">DENY</button>
-                    <object [attr.data]="PeteDental()" type="application/pdf" width="100%" height="800">
-                        <p>Your browser does not support PDFs.</p>
-                    </object>
-                </div>
+            <div *ngIf="pete1">
+                <h5>- Medical -</h5>
+                <button type="button" (click)="hidePete1()"
+                    class="btn btn-success">ACCEPT</button>
+                <button type="button" (click)="hidePete1()" class="btn btn-danger">DENY</button>
+                <object [attr.data]="PeteMedical()" type="application/pdf" width="100%" height="800">
+                    <p>Your browser does not support PDFs.</p>
+                </object>
             </div>
-    
-            <h4>Armand Group</h4>
-            <button (click)="toggle1()" id="btToggle" class="btn btn-info btn-lg">{{buttonName1}}</button>
+
             <br>
-    
-            <div *ngIf="show1">
-                <div *ngIf="armand1">
-                    <h5>- Medical -</h5>
-                    <button type="button" (click)="[aProviderSelection(1, ArmandMedical()), hideArmand1()]"
-                        class="btn btn-success">ACCEPT</button>
-                    <button type="button" (click)="hideArmand1()" class="btn btn-danger">DENY</button>
-                    <object [attr.data]="ArmandMedical()" type="application/pdf" width="100%" height="800">
-                        <p>Your browser does not support PDFs.</p>
-                    </object>
-                </div>
-                <br>
-                <div *ngIf="armand2">
-                    <h5>- Vision -</h5>
-                    <button type="button" (click)="[aProviderSelection(2,ArmandVision()), hideArmand2()]"
-                        class="btn btn-success">ACCEPT</button>
-                    <button type="button" (click)="hideArmand2()" class="btn btn-danger">DENY</button>
-                    <object [attr.data]="ArmandVision()" type="application/pdf" width="100%" height="800">
-                        <p>Your browser does not support PDFs.</p>
-                    </object>
-                </div>
-                <br>
-                <div *ngIf="armand3">
-                    <h5>- Dental -</h5>
-                    <button type="button" (click)="[aProviderSelection(3,ArmandDental()), hideArmand3()]"
-                        class="btn btn-success">ACCEPT</button>
-                    <button type="button" (click)="hideArmand3()" class="btn btn-danger">DENY</button>
-                    <object [attr.data]="ArmandDental()" type="application/pdf" width="100%" height="800">
-                        <p>Your browser does not support PDFs.</p>
-                    </object>
-                </div>
+            <div *ngIf="pete2">
+                <h5>- Vision -</h5>
+                <button type="button" (click)="hidePete2()"
+                    class="btn btn-success">ACCEPT</button>
+                <button type="button" (click)="hidePete2()" class="btn btn-danger">DENY</button>
+                <object [attr.data]="PeteVision()" type="application/pdf" width="100%" height="800">
+                    <p>Your browser does not support PDFs.</p>
+                </object>
             </div>
-            <h4>Will Cross</h4>
-            <button (click)="toggle2()" id="btToggle" class="btn btn-info btn-lg">{{buttonName2}}</button>
             <br>
-    
-            <div *ngIf="show2">
-                <div *ngIf="will1">
-                    <h5>- Medical -</h5>
-                    <button type="button" (click)="[aProviderSelection(1, WillMedical()), hideWill1()]"
-                        class="btn btn-success">ACCEPT</button>
-                    <button type="button" (click)="hideWill1()" class="btn btn-danger">DENY</button>
-                    <object [attr.data]="WillMedical()" type="application/pdf" width="100%" height="800">
-                        <p>Your browser does not support PDFs.</p>
-                    </object>
-                </div>
-    
-                <br>
-                <div *ngIf="will2">
-                    <h5>- Vision -</h5>
-                    <button type="button" (click)="[aProviderSelection(2,WillVision()), hideWill2()]"
-                        class="btn btn-success">ACCEPT</button>
-                    <button type="button" (click)="hideWill2()" class="btn btn-danger">DENY</button>
-                    <object [attr.data]="WillVision()" type="application/pdf" width="100%" height="800">
-                        <p>Your browser does not support PDFs.</p>
-                    </object>
-                </div>
-                <br>
-                <div *ngIf="will3">
-                    <h5>- Dental -</h5>
-                    <button type="button" (click)="[aProviderSelection(3,WillDental()), hideWill3()]"
-                        class="btn btn-success">ACCEPT</button>
-                    <button type="button" (click)="hideWill3()" class="btn btn-danger">DENY</button>
-                    <object [attr.data]="WillDental()" type="application/pdf" width="100%" height="800">
-                        <p>Your browser does not support PDFs.</p>
-                    </object>
-                </div>
+            <div *ngIf="pete3">
+                <h5>- Dental -</h5>
+                <button type="button" (click)="hidePete3()"
+                    class="btn btn-success">ACCEPT</button>
+                <button type="button" (click)="hidePete3()" class="btn btn-danger">DENY</button>
+                <object [attr.data]="PeteDental()" type="application/pdf" width="100%" height="800">
+                    <p>Your browser does not support PDFs.</p>
+                </object>
             </div>
-           
-            <br><a [routerLink]="['']">Home</a>
         </div>
-    
+
+
+        <div *ngIf="armand1">
+            <h5>- Medical -</h5>
+            <button type="button" (click)="hideArmand1()"
+                class="btn btn-success">ACCEPT</button>
+            <button type="button" (click)="hideArmand1()" class="btn btn-danger">DENY</button>
+            <object [attr.data]="ArmandMedical()" type="application/pdf" width="100%" height="800">
+                <p>Your browser does not support PDFs.</p>
+            </object>
+        </div>
+        <br>
+        <div *ngIf="armand2">
+            <h5>- Vision -</h5>
+            <button type="button" (click)="hideArmand2()"
+                class="btn btn-success">ACCEPT</button>
+            <button type="button" (click)="hideArmand2()" class="btn btn-danger">DENY</button>
+            <object [attr.data]="ArmandVision()" type="application/pdf" width="100%" height="800">
+                <p>Your browser does not support PDFs.</p>
+            </object>
+        </div>
+        <br>
+        <div *ngIf="armand3">
+            <h5>- Dental -</h5>
+            <button type="button" (click)="hideArmand3()"
+                class="btn btn-success">ACCEPT</button>
+            <button type="button" (click)="hideArmand3()" class="btn btn-danger">DENY</button>
+            <object [attr.data]="ArmandDental()" type="application/pdf" width="100%" height="800">
+                <p>Your browser does not support PDFs.</p>
+            </object>
+        </div>
+    </div>
+
+    <div *ngIf="will1">
+        <h5>- Medical -</h5>
+        <button type="button" (click)="hideWill1()"
+            class="btn btn-success">ACCEPT</button>
+        <button type="button" (click)="hideWill1()" class="btn btn-danger">DENY</button>
+        <object [attr.data]="WillMedical()" type="application/pdf" width="100%" height="800">
+            <p>Your browser does not support PDFs.</p>
+        </object>
+    </div>
+
+    <br>
+    <div *ngIf="will2">
+        <h5>- Vision -</h5>
+        <button type="button" (click)="hideWill2()"
+            class="btn btn-success">ACCEPT</button>
+        <button type="button" (click)="hideWill2()" class="btn btn-danger">DENY</button>
+        <object [attr.data]="WillVision()" type="application/pdf" width="100%" height="800">
+            <p>Your browser does not support PDFs.</p>
+        </object>
+    </div>
+    <br>
+    <div *ngIf="will3">
+        <h5>- Dental -</h5>
+        <button type="button" (click)="hideWill3()"
+            class="btn btn-success">ACCEPT</button>
+        <button type="button" (click)="hideWill3()" class="btn btn-danger">DENY</button>
+        <object [attr.data]="WillDental()" type="application/pdf" width="100%" height="800">
+            <p>Your browser does not support PDFs.</p>
+        </object>
     </div>
 </div>
+
+<br><a [routerLink]="['']">Home</a>

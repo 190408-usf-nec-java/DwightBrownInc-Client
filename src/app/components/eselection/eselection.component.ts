@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { Subject, Subscription } from 'rxjs';
 import { BenefitPlan } from 'src/app/models/benefitplan';
 import { filter } from 'rxjs/operators';
+import { Provider } from 'src/app/models/provider';
 
 @Component({
   selector: 'app-eselection',
@@ -13,15 +14,15 @@ import { filter } from 'rxjs/operators';
 })
 export class EselectionComponent implements OnInit {
   public show = false;
-  public pete1;
-  public pete2;
-  public pete3;
-  public armand3;
-  public armand2;
-  public armand1;
-  public will1;
-  public will2;
-  public will3;
+  public pete1 = true;
+  public pete2 = false;
+  public pete3 = false;
+  public armand3 = false;
+  public armand2 = false;
+  public armand1 = false;
+  public will1 = false;
+  public will2 = true;
+  public will3 = true;
   public buttonName: any = 'Expand';
   public show1 = false;
   public buttonName1: any = 'Expand';
@@ -32,16 +33,15 @@ export class EselectionComponent implements OnInit {
   public $viewStatus = this.viewStatusSubject.asObservable();
   lastStatus = 201;
   //splitCache = sessionStorage.getItem('cache').split(' ');
-  companyID = 0;
   Url: any;
-  companyId = JSON.parse(localStorage.getItem('token')).company.companyId;
+  companyId = 1;
   employeeBenefit = new Array<BenefitPlan>();
-
+  public providers = new Array<Provider>();
   constructor(private eselectionService: EselectionService, private sanitizer: DomSanitizer, private router: Router) { }
 
   ngOnInit() {
+    this.eselectionService.getProviderList(this.companyId);
     this.eselectionService.getBenefitPlan(this.companyId);
-    this.filter();
     this.response = this.$viewStatus.subscribe(status => {
       if (status === 201) {
         alert('Insurance Chosen');
@@ -52,50 +52,18 @@ export class EselectionComponent implements OnInit {
       }
     });
     console.log(this.employeeBenefit);
+    console.log(this.providers);
+    console.log(localStorage.key(1));
+    this.eselectionService.providerlist.forEach(element => {
+      this.providers.push(element);
+
+    });
   }
   ngOnDestroy() {
     if (this.response) {
       this.response.unsubscribe();
     }
   }
-
-  filter() {
-    for (let i = 0; i < 10; i++) {
-      console.log(localStorage.key(1));
-
-      if (Number(localStorage.key(1)) === this.employeeBenefit[i].providerId) {
-        this.armand1 = true;
-      }
-      if (Number(localStorage.key(2)) === this.employeeBenefit[i].providerId) {
-        this.armand2 = true;
-      }
-      if (Number(localStorage.key(3)) === this.employeeBenefit[i].providerId) {
-        this.armand3 = true;
-      }
-      if (Number(localStorage.key(4)) === this.employeeBenefit[i].providerId) {
-        this.pete1 = true;
-      }
-      if (Number(localStorage.key(5)) === this.employeeBenefit[i].providerId) {
-        this.pete2 = true;
-      }
-      if (Number(localStorage.key(6)) === this.employeeBenefit[i].providerId) {
-        this.pete3 = true;
-      }
-      if (Number(localStorage.key(7)) === this.employeeBenefit[i].providerId) {
-        this.will1 = true;
-      }
-      if (Number(localStorage.key(8)) === this.employeeBenefit[i].providerId) {
-        this.will2 = true;
-      }
-      if (Number(localStorage.key(9)) === this.employeeBenefit[i].providerId) {
-        this.will3 = true;
-      }
-
-    }
-  }
-
-
-
 
   hidePete1() {
     this.pete1 = !this.pete1;
