@@ -19,11 +19,26 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
     this.signupResponse = this.signUpService.$signUpStatus.subscribe(status =>
      if (status === 201){
-       alert(' Congratulations Signup Succesfull');
-     } else{
+       alert(' Congratulations Signup Successfull');
+     } else {
        alert('Sorry Signup is Unsuccessful');
        this.lastStatus = status;
-     } );
+     }
+
+    });
   }
+
+  ngOnDestroy(){
+    if(this.signupResponse){
+      this.signupResponse.unsubscribe();
+    }//end if 
+
+  }// end ngOnDestroy
+
+  submit(){
+
+    this.signUpService.signup(this.email, this.firstname, this.lastname);
+
+  }//end fir
 
 }
