@@ -11,7 +11,7 @@
 <div class="row justify-content-center">
   <div class="col-9">
     <div class="form-group">
-      <label for="exampleInputEmail1">User ID</label>
+      <label for="exampleInputEmail1">Email</label>
       <input type="email" class="form-control" id="UserID" placeholder="Enter User ID">
       <small id="emailHelp" class="form-text text-muted"></small>
     </div>
@@ -23,7 +23,7 @@
         <label for="confirm password">Confirm Password</label>
         <input type="confirm password" class="form-control" id="confirm password" placeholder="Confirm Password">
       </div>
-    <button type="submit" class="btn btn-primary">SUBMIT</button>
+    <button type="submit" (click)="submit()"class="btn btn-primary">SUBMIT</button>
     <a [routerLink]="['']">Home</a>
   </div>
 </div>
