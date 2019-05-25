@@ -49,6 +49,7 @@ export class EselectionComponent implements OnInit {
         this.lastStatus = status;
       }
     });
+    console.log(this.employeeBenefit);
   }
   ngOnDestroy() {
     if (this.response) {
