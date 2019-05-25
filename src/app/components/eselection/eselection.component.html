@@ -7,9 +7,9 @@
 <div class="row justify-content-center">
 
         <div class="col-9">
-            <button (click)="toggle()" id="btToggle" class="btn btn-info btn-lg">{{buttonName}}</button>
+            <h4>Pete's Dental</h4>
+            <button (click)="toggle()" id="btToggle" class="btn btn-primary">{{buttonName}}</button>
             <br>
-    
             <div *ngIf="show">
                 <div *ngIf="pete1">
                     <h5>- Medical -</h5>
@@ -44,7 +44,7 @@
             </div>
     
             <h4>Armand Group</h4>
-            <button (click)="toggle1()" id="btToggle" class="btn btn-info btn-lg">{{buttonName1}}</button>
+            <button (click)="toggle1()" id="btToggle" class="btn btn-primary">{{buttonName1}}</button>
             <br>
     
             <div *ngIf="show1">
@@ -79,7 +79,7 @@
                 </div>
             </div>
             <h4>Will Cross</h4>
-            <button (click)="toggle2()" id="btToggle" class="btn btn-info btn-lg">{{buttonName2}}</button>
+            <button (click)="toggle2()" id="btToggle" class="btn btn-primary">{{buttonName2}}</button>
             <br>
     
             <div *ngIf="show2">
@@ -114,7 +114,7 @@
                     </object>
                 </div>
             </div>
-           
+            <button type="submit" (click)="Submit()" class="btn btn-primary">SUBMIT</button>
             <br><a [routerLink]="['']">Home</a>
         </div>
     
