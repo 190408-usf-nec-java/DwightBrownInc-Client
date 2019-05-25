@@ -4,6 +4,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { Subject, Subscription } from 'rxjs';
 import { BenefitPlan } from 'src/app/models/benefitplan';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-eselection',
@@ -33,13 +34,14 @@ export class EselectionComponent implements OnInit {
   //splitCache = sessionStorage.getItem('cache').split(' ');
   companyID = 0;
   Url: any;
-  companyId;
+  companyId = JSON.parse(localStorage.getItem('token')).company.companyId;
   employeeBenefit = new Array<BenefitPlan>();
 
   constructor(private eselectionService: EselectionService, private sanitizer: DomSanitizer, private router: Router) { }
 
   ngOnInit() {
     this.eselectionService.getBenefitPlan(this.companyId);
+    this.filter();
     this.response = this.$viewStatus.subscribe(status => {
       if (status === 201) {
         alert('Insurance Chosen');
@@ -58,6 +60,7 @@ export class EselectionComponent implements OnInit {
 
   filter() {
     for (let i = 0; i < 10; i++) {
+      console.log(localStorage.key(1));
 
       if (Number(localStorage.key(1)) === this.employeeBenefit[i].providerId) {
         this.armand1 = true;
@@ -150,33 +153,33 @@ export class EselectionComponent implements OnInit {
     }
   }
   PeteDental() {
-    return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.aproviderService.getPeteDental());
+    return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.eselectionService.getPeteDental());
   }
   PeteVision() {
-    return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.aproviderService.getPeteVision());
+    return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.eselectionService.getPeteVision());
   }
   PeteMedical() {
-    return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.aproviderService.getPeteHealth());
+    return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.eselectionService.getPeteHealth());
   }
   ArmandDental() {
-    return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.aproviderService.getArmandDental());
+    return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.eselectionService.getArmandDental());
   }
   ArmandVision() {
-    return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.aproviderService.getArmandVision());
+    return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.eselectionService.getArmandVision());
   }
   ArmandMedical() {
-    return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.aproviderService.getArmandMedical());
+    return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.eselectionService.getArmandMedical());
   }
   WillDental() {
-    return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.aproviderService.getWillDental());
+    return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.eselectionService.getWillDental());
   }
   WillMedical() {
-    return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.aproviderService.getWillMedical());
+    return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.eselectionService.getWillMedical());
   }
   WillVision() {
-    return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.aproviderService.getWillVision());
+    return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.eselectionService.getWillVision());
   }
   Retirement() {
-    return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.aproviderService.getRetirement());
+    return this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.eselectionService.getRetirement());
   }
 }

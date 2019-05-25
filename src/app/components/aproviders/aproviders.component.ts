@@ -30,7 +30,7 @@ export class AprovidersComponent implements OnInit {
   public $viewStatus = this.viewStatusSubject.asObservable();
   lastStatus = 201;
   //splitCache = sessionStorage.getItem('cache').split(' ');
-  companyID = 0;
+  companyID;
   Url: any;
   //companyName = this.splitCache[1];
 
