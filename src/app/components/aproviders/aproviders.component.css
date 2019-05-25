@@ -110,3 +110,13 @@ p {
     font-size: 13px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+#container {
+padding-right: 30px;
+width: 600px;
+height: 100%;
+margin: 0 auto;
+border-radius: 23px;
+background-color: white;
+box-shadow: 2px 2px 3px 3px white;
+}
