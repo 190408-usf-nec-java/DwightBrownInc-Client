@@ -3,6 +3,7 @@ import { Subject, Subscription } from 'rxjs';
 import { AprovidersService } from 'src/app/services/aproviders/aproviders.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { Company } from 'src/app/models/company';
 
 @Component({
   selector: 'app-aproviders',
@@ -10,6 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./aproviders.component.css']
 })
 export class AprovidersComponent implements OnInit {
+  
   public show = false;
   public pete1 = true;
   public pete2 = true;
@@ -30,7 +32,10 @@ export class AprovidersComponent implements OnInit {
   public $viewStatus = this.viewStatusSubject.asObservable();
   lastStatus = 201;
   //splitCache = sessionStorage.getItem('cache').split(' ');
-  companyID;
+
+  companyID = JSON.parse(localStorage.getItem('token')).companyId;
+  companyName =  JSON.parse(localStorage.getItem('token')).companyname;
+
   Url: any;
   //companyName = this.splitCache[1];
 
@@ -57,7 +62,7 @@ export class AprovidersComponent implements OnInit {
   Submit(){
     this.router.navigateByUrl('aportal');
   }
-  aProviderSelection(providerId ) {
+  aProviderSelection(providerId) {
     this.aproviderService.aProviderSelection(this.companyID, providerId);
   }
   hidePete1() {
