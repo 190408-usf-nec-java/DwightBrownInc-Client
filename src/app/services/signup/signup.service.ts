@@ -19,7 +19,7 @@ export class SignupService {
       employeeLastName: lastname,
       employeeEmail: email
 
-    };//end payload
+    };// end payload
 
     this.httpClient.post('http://localhost:8080/Employee', payload, {
     }).subscribe(response => {
@@ -30,4 +30,4 @@ export class SignupService {
 
   }// method signup
 
-}//end class SignupService
+}// class SignupService
