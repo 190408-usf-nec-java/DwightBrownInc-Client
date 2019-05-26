@@ -16,7 +16,6 @@ export class AprovidersService {
     console.log(providerID);
     const payload = {
       companyId: companyID,
-
       providerId: providerID,
     };
     this.httpClient.post('http://localhost:8081/BenefitPlan', payload, {

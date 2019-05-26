@@ -32,7 +32,6 @@ export class AprovidersComponent implements OnInit {
   public $viewStatus = this.viewStatusSubject.asObservable();
   lastStatus = 201;
   //splitCache = sessionStorage.getItem('cache').split(' ');
-
   companyID = JSON.parse(localStorage.getItem('token')).companyId;
   companyName =  JSON.parse(localStorage.getItem('token')).companyname;
 
@@ -43,7 +42,6 @@ export class AprovidersComponent implements OnInit {
   constructor(private aproviderService: AprovidersService, private sanitizer: DomSanitizer, private router: Router) { }
 
   ngOnInit() {
-
     this.response = this.$viewStatus.subscribe(status => {
       if (status === 201) {
         alert('Insurance Chosen');
