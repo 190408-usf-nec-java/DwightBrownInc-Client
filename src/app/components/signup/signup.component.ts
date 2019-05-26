@@ -17,7 +17,7 @@ export class SignupComponent implements OnInit {
   constructor(private signUpService: SignupService ) { }
 
   ngOnInit() {
-    this.signupResponse = this.signUpService.$signUpStatus.subscribe(status =>
+    this.signupResponse = this.signUpService.$signupStatus.subscribe(status =>{
      if (status === 201){
        alert(' Congratulations Signup Successfull');
      } else {
@@ -26,7 +26,8 @@ export class SignupComponent implements OnInit {
      }
 
     });
-  }
+
+}
 
   ngOnDestroy(){
     if(this.signupResponse){
