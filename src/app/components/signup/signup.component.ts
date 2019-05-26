@@ -8,9 +8,8 @@ import { SignupService } from 'src/app/services/signup/signup.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  firstname = '';
-  lastname = '';
-  email = '';
+  employeeemail = '';
+  employeepassword = '';
   signupResponse: Subscription;
   lastStatus = 201;
 
@@ -38,7 +37,7 @@ export class SignupComponent implements OnInit {
 
   submit(){
 
-    this.signUpService.signup(this.email, this.firstname, this.lastname);
+    this.signUpService.signup(this.employeeemail, this.employeepassword);
 
   }//end fir
 

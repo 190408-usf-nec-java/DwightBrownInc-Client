@@ -14,12 +14,11 @@ export class SignupService {
 
 
   constructor(private httpClient: HttpClient) { }
-  signup(firstname: string, lastname: string, email: string): void {
+  signup(employeeemail: string, employeepassword: string): void {
 
     const payload = {
-      employeeFirstName: firstname,
-      employeeLastName: lastname,
-      employeeEmail: email
+      employeeemail: employeeemail,
+      employeepassword:employeepassword,
 
     };// end payload
 
