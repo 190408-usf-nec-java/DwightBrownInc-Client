@@ -9,20 +9,16 @@ export class SignupService {
   private signupStatusSubject = new Subject<number>();
   public $signupStatus = this.signupStatusSubject.asObservable();
 
-
-
-
-
   constructor(private httpClient: HttpClient) { }
   signup(employeeemail: string, employeepassword: string): void {
 
     const payload = {
-      employeeemail: employeeemail,
-      employeepassword:employeepassword,
+      employeeEmail: employeeemail,
+      employeePassword:employeepassword,
 
-    };// end payload
+    }; // end payload
 
-    this.httpClient.post('http://localhost:8080/Employee', payload, {
+    this.httpClient.put('http://localhost:8080/Employee/createPassword', payload, {
     }).subscribe(response => {
       this.signupStatusSubject.next(201);
     }, err => {
